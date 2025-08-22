@@ -1,0 +1,1 @@
+create a UserRecords.jsx and in this show all the users and their records, means by each user's account how many participant's has been registered, their full details  properly show them and it will be accessible by member
