@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Notification</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .email-header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+        .email-header h1 {
+            color: white;
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+        }
+        .email-body {
+            padding: 30px;
+        }
+        .event-card {
+            background: #f9fafc;
+            border-left: 4px solid #2575fc;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+        .event-detail {
+            display: flex;
+            margin-bottom: 12px;
+            align-items: center;
+        }
+        .icon {
+            width: 24px;
+            margin-right: 15px;
+            color: #2575fc;
+            text-align: center;
+            font-size: 18px;
+        }
+        .detail-content {
+            flex: 1;
+        }
+        .detail-label {
+            font-size: 12px;
+            color: #777777;
+            margin-bottom: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .detail-value {
+            font-size: 16px;
+            color: #333333;
+            font-weight: 500;
+        }
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 5px;
+            margin: 30px 0;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .sub-events {
+            margin-top: 25px;
+        }
+        .sub-event-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2575fc;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .role-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            background-color: #e8f0fe;
+            color: #2575fc;
+            border-radius: 20px;
+            font-size: 13px;
+            margin: 0 8px 8px 0;
+            font-weight: 500;
+        }
+        .role-badge.compulsory {
+            background-color: #ffe9e9;
+            color: #ff5252;
+        }
+        .email-footer {
+            background-color: #f1f5f9;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #777777;
+            border-radius: 0 0 5px 5px;
+        }
+        .email-footer a {
+            color: #2575fc;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .email-footer a:hover {
+            text-decoration: underline;
+        }
+        .event-description {
+            color: #555;
+            margin: 15px 0;
+            line-height: 1.5;
+        }
+        @media (max-width: 600px) {
+            .email-container {
+                border-radius: 0;
+            }
+            .email-body {
+                padding: 20px;
+            }
+            .event-detail {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .icon {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-header">
+            <div class="logo">EventMasters</div>
+            <h1>New Event Announcement</h1>
+        </div>
+
+        <div class="email-body">
+            <p>Hello valued member,</p>
+            <p>We're excited to announce a new event that we believe you'll be interested in participating in!</p>
+
+            <div class="event-card">
+                <h2 style="margin-top: 0; color: #2575fc;">{{eventName}}</h2>
+
+                <div class="event-detail">
+                    <div class="icon">📅</div>
+                    <div class="detail-content">
+                        <div class="detail-label">DATE</div>
+                        <div class="detail-value">{{eventDate}}</div>
+                    </div>
+                </div>
+
+                <div class="event-detail">
+                    <div class="icon">⏰</div>
+                    <div class="detail-content">
+                        <div class="detail-label">TIME</div>
+                        <div class="detail-value">{{eventTime}}</div>
+                    </div>
+                </div>
+
+                <div class="event-detail">
+                    <div class="icon">🔒</div>
+                    <div class="detail-content">
+                        <div class="detail-label">REGISTRATION CLOSES</div>
+                        <div class="detail-value">{{registrationClosing}}</div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="event-description">Don't miss this opportunity to connect with others and participate in exciting activities. Register now to secure your spot!</p>
+
+            <a href="{{registrationLink}}" class="cta-button">Register Now</a>
+
+            <p>Best regards,<br>The EventMasters Team</p>
+        </div>
+
+        <div class="email-footer">
+            <p>© 2025 EventMasters. All rights reserved.</p>
+            <p>You're receiving this email because you're a registered member of EventMasters.</p>
+            <p>
+                <a href="{{unsubscribeLink}}">Unsubscribe</a> |
+                <a href="{{preferencesLink}}">Update Preferences</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
