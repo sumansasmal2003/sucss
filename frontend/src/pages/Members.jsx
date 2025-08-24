@@ -18,7 +18,7 @@ const Member = () => {
     const fetchMembers = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('http://localhost:5000/api/auth/public/members/approved'); // change to full URL if needed
+        const response = await axios.get('https://sucss.onrender.com/api/auth/public/members/approved'); // change to full URL if needed
         if (!mounted) return;
         setMembers(response.data || []);
       } catch (err) {

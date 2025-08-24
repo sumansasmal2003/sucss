@@ -72,22 +72,22 @@ const AdminDashboard = () => {
         setError(null);
         const token = localStorage.getItem('token');
 
-        const pendingRes = await axios.get('http://localhost:5000/api/auth/admin/members/pending', {
+        const pendingRes = await axios.get('https://sucss.onrender.com/api/auth/admin/members/pending', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setPendingMembers(pendingRes.data || []);
 
-        const approvedRes = await axios.get('http://localhost:5000/api/auth/admin/members/approved', {
+        const approvedRes = await axios.get('https://sucss.onrender.com/api/auth/admin/members/approved', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setApprovedMembers(approvedRes.data || []);
 
-        const rejectedRes = await axios.get('http://localhost:5000/api/auth/admin/members/rejected', {
+        const rejectedRes = await axios.get('https://sucss.onrender.com/api/auth/admin/members/rejected', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setRejectedMembers(rejectedRes.data || []);
 
-        const usersRes = await axios.get('http://localhost:5000/api/auth/admin/users', {
+        const usersRes = await axios.get('https://sucss.onrender.com/api/auth/admin/users', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUsers(usersRes.data || []);
@@ -108,7 +108,7 @@ const AdminDashboard = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.post(
-        `http://localhost:5000/api/auth/admin/members/${memberId}/approve`,
+        `https://sucss.onrender.com/api/auth/admin/members/${memberId}/approve`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -146,7 +146,7 @@ const AdminDashboard = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.post(
-        `http://localhost:5000/api/auth/admin/members/${currentMemberId}/reject`,
+        `https://sucss.onrender.com/api/auth/admin/members/${currentMemberId}/reject`,
         { reason: rejectionReason },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -183,7 +183,7 @@ const AdminDashboard = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.post(
-        `http://localhost:5000/api/auth/admin/users/${currentUserId}/block`,
+        `https://sucss.onrender.com/api/auth/admin/users/${currentUserId}/block`,
         { reason: blockReason },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -210,7 +210,7 @@ const AdminDashboard = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.post(
-        `http://localhost:5000/api/auth/admin/users/${userId}/unblock`,
+        `https://sucss.onrender.com/api/auth/admin/users/${userId}/unblock`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

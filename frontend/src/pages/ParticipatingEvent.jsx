@@ -39,7 +39,7 @@ const ParticipatingEvent = () => {
   const fetchEvents = async () => {
     try {
       const token = getAuthToken();
-      const response = await axios.get('http://localhost:5000/api/participating-events', {
+      const response = await axios.get('https://sucss.onrender.com/api/participating-events', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setEvents(response.data.data);
@@ -83,7 +83,7 @@ const ParticipatingEvent = () => {
 
     try {
       const token = getAuthToken();
-      const response = await axios.delete(`http://localhost:5000/api/participating-events/${eventId}`, {
+      const response = await axios.delete(`https://sucss.onrender.com/api/participating-events/${eventId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -263,7 +263,7 @@ const ParticipatingEvent = () => {
 
     try {
       const token = getAuthToken();
-      await axios.post('http://localhost:5000/api/participating-events', formData, {
+      await axios.post('https://sucss.onrender.com/api/participating-events', formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

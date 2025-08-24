@@ -49,7 +49,7 @@ const UploadEvents = () => {
       const token = localStorage.getItem('token');
 
       // Use relative API path - change to full URL if your backend runs on a different host
-      await axios.post('http://localhost:5000/api/events', payload, {
+      await axios.post('https://sucss.onrender.com/api/events', payload, {
         headers: token ? { Authorization: `Bearer ${token}` } : undefined
       });
 

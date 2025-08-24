@@ -51,7 +51,7 @@ const MemberDashboard = () => {
         setLoading(true);
         setError('');
         const token = getAuthToken();
-        const response = await axios.get('http://localhost:5000/api/auth/member/me', {
+        const response = await axios.get('https://sucss.onrender.com/api/auth/member/me', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setMemberData(response.data);
@@ -73,19 +73,19 @@ const MemberDashboard = () => {
         const token = getAuthToken();
 
         // Fetch ALL events (not just the ones created by this member)
-        const eventsResponse = await axios.get('http://localhost:5000/api/events', {
+        const eventsResponse = await axios.get('https://sucss.onrender.com/api/events', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setEvents(eventsResponse.data);
 
         // Fetch participating events created by this member
-        const participatingResponse = await axios.get('http://localhost:5000/api/participating-events', {
+        const participatingResponse = await axios.get('https://sucss.onrender.com/api/participating-events', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setParticipatingEvents(participatingResponse.data.data || []);
 
         // Fetch ALL participating events (not just the ones created by this member)
-        const allParticipatingResponse = await axios.get('http://localhost:5000/api/participating-events/all', {
+        const allParticipatingResponse = await axios.get('https://sucss.onrender.com/api/participating-events/all', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setAllParticipatingEvents(allParticipatingResponse.data.data || []);

@@ -15,7 +15,7 @@ const AllEvents = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/events');
+        const response = await axios.get('https://sucss.onrender.com/api/events');
         setEvents(response.data);
         setLoading(false);
       } catch (err) {
@@ -152,14 +152,6 @@ const AllEvents = () => {
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-4">
                     <div>
-                      <div className="flex items-center">
-                        <div className="bg-sky-100 text-sky-700 text-xs font-semibold px-2.5 py-0.5 rounded-full border border-sky-200">
-                          {event.memberName}
-                        </div>
-                        <span className="ml-2 text-xs text-gray-500">
-                          ID: {event.memberId}
-                        </span>
-                      </div>
                       <h2 className="mt-2 text-xl font-bold text-gray-900">{event.eventName}</h2>
                     </div>
                     <div className="bg-gray-100 p-2 rounded-lg">

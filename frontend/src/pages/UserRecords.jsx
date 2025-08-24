@@ -78,7 +78,7 @@ const UserRecords = () => {
       setLoading(true);
       setError('');
       const token = localStorage.getItem('token') || '';
-      const response = await axios.get(`http://localhost:5000/api/participations/users/records?page=${page}`, {
+      const response = await axios.get(`https://sucss.onrender.com/api/participations/users/records?page=${page}`, {
         headers: {
           Authorization: token ? `Bearer ${token}` : undefined,
         },
